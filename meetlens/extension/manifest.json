@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "MeetLens",
+  "version": "0.1.0",
+  "description": "AI Meeting Translator & Explainer",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["https://meet.google.com/*"],
+  "action": {
+    "default_title": "MeetLens",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
